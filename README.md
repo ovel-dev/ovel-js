@@ -1,4 +1,4 @@
-# ovel-node
+# ovel-js
 
 install
 
