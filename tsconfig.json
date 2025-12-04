@@ -3,7 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@ovel/*": ["packages/*/src"]
+      "@ovel/*": [
+        "packages/*/src"
+      ]
     }
   },
   "files": [],

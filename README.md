@@ -35,10 +35,13 @@ bun install
 
 ## Adding a New Package
 
-1. Create a new directory in `packages/`
-2. Add `package.json` with `@ovel/` prefix
-3. Add `tsconfig.json` extending `../../tsconfig.base.json`
-4. Add reference in root `tsconfig.json`
+```bash
+bun run new <package-name>
+```
+
+This will:
+- Create `packages/<name>/` with `package.json`, `tsconfig.json`, `src/index.ts`
+- Add reference to root `tsconfig.json`
 
 ## Package Dependencies
 
