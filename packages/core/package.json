@@ -1,0 +1,27 @@
+{
+  "name": "@ovel/core",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "dev": "tsc --build --watch",
+    "test": "bun test",
+    "test:watch": "bun test --watch"
+  },
+  "dependencies": {
+    "@ovel/utils": "workspace:*"
+  },
+  "files": [
+    "src",
+    "dist"
+  ]
+}
