@@ -3,9 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@ovel/*": [
-        "packages/*/src"
-      ]
+      "@ovel/*": ["packages/*/src"]
     }
   },
   "files": [],
@@ -15,12 +13,6 @@
     },
     {
       "path": "packages/core"
-    },
-    {
-      "path": "packages/test-package"
-    },
-    {
-      "path": "packages/test-pkg"
     }
   ]
 }

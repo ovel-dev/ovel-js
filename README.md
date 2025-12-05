@@ -7,8 +7,7 @@ A TypeScript monorepo powered by Bun.
 ```
 ovel-js/
 ├── packages/
-│   ├── core/          # @ovel/core - Core functionality
-│   └── utils/         # @ovel/utils - Shared utilities
+│   └── core/          # @ovel/core - Core functionality
 ├── tsconfig.base.json # Shared TypeScript config
 ├── tsconfig.json      # Root config with project references
 └── package.json       # Workspace configuration
@@ -22,16 +21,16 @@ bun install
 
 ## Scripts
 
-| Command | Description |
-|---------|-------------|
-| `bun run build` | Build all packages |
-| `bun run dev` | Watch mode for all packages |
-| `bun run test` | Run tests in all packages |
-| `bun run typecheck` | Type check all packages |
-| `bun run lint` | Lint all packages |
-| `bun run lint:fix` | Fix lint issues |
-| `bun run format` | Format code with Prettier |
-| `bun run clean` | Clean build artifacts |
+| Command             | Description                 |
+| ------------------- | --------------------------- |
+| `bun run build`     | Build all packages          |
+| `bun run dev`       | Watch mode for all packages |
+| `bun run test`      | Run tests in all packages   |
+| `bun run typecheck` | Type check all packages     |
+| `bun run lint`      | Lint all packages           |
+| `bun run lint:fix`  | Fix lint issues             |
+| `bun run format`    | Format code with Prettier   |
+| `bun run clean`     | Clean build artifacts       |
 
 ## Adding a New Package
 
@@ -40,6 +39,7 @@ bun run new <package-name>
 ```
 
 This will:
+
 - Create `packages/<name>/` with `package.json`, `tsconfig.json`, `src/index.ts`
 - Add reference to root `tsconfig.json`
 
@@ -50,7 +50,7 @@ Use `workspace:*` for internal dependencies:
 ```json
 {
   "dependencies": {
-    "@ovel/utils": "workspace:*"
+    "@ovel/core": "workspace:*"
   }
 }
 ```
