@@ -10,7 +10,17 @@
   },
   "files": [],
   "references": [
-    { "path": "packages/utils" },
-    { "path": "packages/core" }
+    {
+      "path": "packages/utils"
+    },
+    {
+      "path": "packages/core"
+    },
+    {
+      "path": "packages/test-package"
+    },
+    {
+      "path": "packages/test-pkg"
+    }
   ]
 }

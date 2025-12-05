@@ -4,16 +4,18 @@
  * Usage: bun run new <package-name>
  */
 
-import { existsSync, mkdirSync, writeFileSync, readFileSync } from 'fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
-const ROOT = join(import.meta.dir, '..');
+const ROOT = process.cwd();
 const PACKAGES_DIR = join(ROOT, 'packages');
 
 function createPackage(name: string) {
   // Validate name
   if (!name || !/^[a-z][a-z0-9-]*$/.test(name)) {
-    console.error('❌ Invalid package name. Use lowercase letters, numbers, and hyphens.');
+    console.error(
+      '❌ Invalid package name. Use lowercase letters, numbers, and hyphens.'
+    );
     console.error('   Example: bun run new my-package');
     process.exit(1);
   }
@@ -87,7 +89,9 @@ function createPackage(name: string) {
 
   // Update root tsconfig.json references
   const rootTsconfigPath = join(ROOT, 'tsconfig.json');
-  const rootTsconfig = JSON.parse(readFileSync(rootTsconfigPath, 'utf-8'));
+  const rootTsconfig = JSON.parse(readFileSync(rootTsconfigPath, 'utf-8')) as {
+    references?: Array<{ path: string }>;
+  };
 
   const newRef = { path: `packages/${name}` };
   if (!rootTsconfig.references) {
@@ -95,12 +99,15 @@ function createPackage(name: string) {
   }
 
   const alreadyExists = rootTsconfig.references.some(
-    (ref: { path: string }) => ref.path === newRef.path
+    ref => ref.path === newRef.path
   );
 
   if (!alreadyExists) {
     rootTsconfig.references.push(newRef);
-    writeFileSync(rootTsconfigPath, JSON.stringify(rootTsconfig, null, 2) + '\n');
+    writeFileSync(
+      rootTsconfigPath,
+      JSON.stringify(rootTsconfig, null, 2) + '\n'
+    );
     console.log('  ✓ Updated root tsconfig.json');
   }
 
